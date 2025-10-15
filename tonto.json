@@ -1,0 +1,9 @@
+{
+   "projectName": "UFO-ONTOUML",
+   "displayName": "UFO-ONTOUML",
+   "version": "1.0.0",
+   "publisher": "default publisher",
+   "license": "MIT",
+   "outFolder": "out",
+   "dependencies": {}
+}
