@@ -1,0 +1,79 @@
+import UFO-A-Ontology
+import AgentOntology
+
+package NormativeDescriptionOntology
+
+category SocialObject specializes Object of objects {
+    label {
+        @en "Social Object"
+        @nl "Sociaal Object"
+    }
+    description {
+        @en "A Social Object is an Object that exists only by virtue of a social practice, i.e., it depends on the collective intentionality of a community for its existence."
+        @nl "Een Sociaal Object is een Object dat alleen bestaat door een sociale praktijk, d.w.z. het hangt af van de collectieve intentionaliteit van een gemeenschap voor zijn bestaan."
+    }
+    /**
+    Examples: money, marriage, corporation, government, law, contract, promise, obligation, right, duty, role, function, institution.
+    */
+}
+
+category PhysicalObject specializes Object of objects {
+    label {
+        @en "Physical Object"
+        @nl "Fysiek Object"
+    }
+    description {
+        @en "A Physical Object is an Object that has a physical presence in space and time, and can be perceived by the senses."
+        @nl "Een Fysiek Object is een Object dat een fysieke aanwezigheid heeft in ruimte en tijd, en kan worden waargenomen door de zintuigen."
+    }
+    /**
+    Examples: car, tree, person, building, animal, rock, water, air.
+    */
+}
+
+mixin Resource specializes Object {
+    label {
+        @en "Resource"
+        @nl "Hulpbron"
+    }
+    description {
+        @en "A Resource is an Object that can be used or consumed in an Action to achieve a goal or satisfy a need."
+        @nl "Een Hulpbron is een Object dat kan worden gebruikt of geconsumeerd in een Activiteit om een doel te bereiken of een behoefte te bevredigen."
+    }
+    /**
+    Beschrijving: This is a mixin because it is semi-rigid - a resource can be essential for some objects but accidental for others (e.g., energy for a machine vs. optional for a person). It constrains the natures to objects for clarity.
+    Examples: money, time, energy, information, skills, knowledge, materials.
+    */
+}
+
+category NormativeDescription specializes SocialObject of objects {
+    label {
+        @en "Normative Description"
+        @nl "Normatieve Beschrijving"
+    }
+    description {
+        @en "A Normative Description is a Social Object that represents a set of norms, rules, or guidelines that govern the behavior of individuals or groups within a social context."
+        @nl "Een Normatieve Beschrijving is een Sociaal Object dat een reeks normen, regels of richtlijnen vertegenwoordigt die het gedrag van individuen of groepen binnen een sociale context regelen."
+    }
+    /**
+    Beschrijving: It defines one or more rules/norms recognized by at least one Social Agent and that can define Nominal Universals such as Social Moment Universals (e.g., social commitment types), Social Objects (the crown of the king of Spain) and Social Roles such as president, prime minister, PhD candidate or pedestrian.
+    Examples: laws, regulations, policies, standards, codes of conduct, ethical guidelines.
+    */
+}
+
+@formal relation NormativeDescription [0..1] -- defines -- [1..*] Object
+
+roleMixin SocialRole specializes Agent of objects {
+    label {
+        @en "Social Role"
+        @nl "Sociale Rol"
+    }
+    description {
+        @en "A Social Role is a Role that an individual or group can assume within a social context, which is defined by a set of norms, expectations, and behaviors associated with that role."
+        @nl "Een Sociale Rol is een Rol die een individu of groep kan aannemen binnen een sociale context, die wordt gedefinieerd door een reeks normen, verwachtingen en gedragingen die met die rol zijn geassocieerd."
+    }
+    /**
+    Beschrijving: This is a roleMixin because it is anti-rigid and relational - individuals can enter/leave the role without losing identity, based on social norms (not just attributes). The 'of objects' constrains to substantial agents (persons, organizations). It is used for normative descriptions to define roles like duties or permissions.
+    Note: Agent is a category in AgentOntology, so specializing as roleMixin allows flexibility for social contexts.
+    */
+}

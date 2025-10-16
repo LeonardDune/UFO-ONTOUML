@@ -1,0 +1,43 @@
+import UFO-A-Ontology
+import NormativeDescriptionOntology
+import ActionOntology
+
+package AgentOntology
+
+/**
+This is the ontology module for Agents (part of UFO-C), which provides foundational concepts for modeling agents and their mental aspects.
+
+Sources:
+- https://ontology.com.br/ufo/ufo-c/spec/ 
+- Guizzardi, G., Wagner, G. (2004). Towards ontological foundations for agent modeling concepts using UFO. https://www.researchgate.net/publication/221394588_Towards_Ontological_Foundations_for_Agent_Modelling_Concepts_Using_the_Unified_Fundational_Ontology_UFO
+*/
+
+category Agent specializes Object
+
+@creation relation Agent [1] -- creates -- [0..*] Action
+@participation relation Agent [1] -- performs -- [0..*] AgentContribution
+
+category SocialAgent specializes Agent
+
+category InstitutionalAgent specializes SocialAgent
+
+category CollectiveSocialAgent specializes SocialAgent, Collective
+
+category Society specializes CollectiveSocialAgent
+
+category Ecosystem specializes CollectiveSocialAgent
+
+@participational relation NormativeDescription [0..*] -- recognizedBy -- [1..*] SocialAgent
+
+category PhysicalAgent specializes Agent, PhysicalObject
+
+category IntentionalMoment specializes IntrinsicMoment
+
+category MentalMoment specializes IntentionalMoment
+
+category SocialMoment specializes IntentionalMoment, QuaIndividual
+
+@characterization relation IntrinsicMoment [1..*] -- inheresIn -- [1..*] Agent
+
+@participation relation Agent [0..*] -- participatesIn -- [1..*] Event
+

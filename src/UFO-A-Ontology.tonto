@@ -1,0 +1,322 @@
+package UFO-A-Ontology
+
+class Thing
+
+class Individual specializes Thing
+
+class ConcreteIndividual specializes Individual
+
+class Perdurant specializes ConcreteIndividual {
+    label {
+        @en "Perdurant"
+        @nl "Perdurant"
+    }
+    description {
+        @en "A Perdurant is a Concrete Individual that unfold in time by accumulating different temporal parts. They are manifestations of dispositions and only exist in the past. As such, thay are modally fragile, there is no cross-world identity between them and, hence, they cannot be in any way different than what they are."
+        @nl "Een Perdurant is een Concreet Individu dat zich in de tijd ontvouwt door verschillende temporele delen op te tellen. Ze zijn manifestaties van disposities en bestaan alleen in het verleden. Als zodanig zijn ze modaal fragiel, er is geen cross-world identiteit tussen hen en ze kunnen dus niet op enigerlei wijze anders zijn dan wat ze zijn."    
+    }
+    /*
+        Examples: the happening of a car accident, the happening of a marriage, the happening of a concert, the happening of a car being sold, the happening of a person using a streaming service
+    */
+}
+
+class Endurant specializes ConcreteIndividual {
+    label {
+        @en "Endurant"
+        @nl "Endurant"
+    }
+    description {
+        @en "An Endurant is a Concrete Individual that exist in time with all their parts. They have essential and accidental properties and, hence, they can qualitatively change while maintaining their numerical identity."
+        @nl "Een Endurant is een Concreet Individu dat geheel aanwezig is op elk moment dat het aanwezig is."
+    }
+    /*
+        Examples: a person, a car, a house, the color of a car, the role of a person in an organization, the employment of a person, the marriage between two persons, the ownership of a car by a person
+    */
+}
+
+class Situation specializes Endurant {
+    label {
+        @en "Situation"
+        @nl "Situatie"
+    }
+    description {
+        @en "A Situation is an Endurant that is a particular configuration of other endurants, called its constituents, that jointly satisfy a certain condition."
+        @nl "Een Situatie is een Endurant dat een specifieke configuratie is van andere enduranten, de zogenaamde bestanddelen, die gezamenlijk aan een bepaalde voorwaarde voldoen."
+    }
+    /*
+        Beschrijving: een situatie is een verzameling van entiteiten die samen een bepaalde toestand of context vormen. Het is een momentopname van hoe dingen zich op een bepaald moment verhouden tot elkaar.
+        Examples: the situation of a person being employed by a company, the situation of a car being owned by a person, the situation of a marriage between two persons
+    */
+}
+
+relation Endurant [1..*] -- isPresentIn -- [1..*] Situation
+relation Situation [0..*] -- satisfies -- [0..*] Proposition
+
+class Substantial specializes Endurant {
+    label {
+        @en "Substantial"
+        @nl "Substantieel"
+    }
+    description {
+        @en "A Substantial is an Endurant that can independently exist and can participate in Events."
+        @nl "Een Substantieel is een Endurant dat onafhankelijk kan bestaan en kan deelnemen aan Gebeurtenissen."
+    }
+    /*
+        Beschrijving: een entiteit die op zichzelf bestaat en eigenschappen draagt.
+        Examples: a person, a car, a house
+    */
+}
+
+class Object specializes Substantial {
+    label {
+        @en "Object"
+        @nl "Object"
+    }
+    description {
+        @en "An Object is a Substantial whose parts play differentiated functional roles with respect to the whole."
+        @nl "Een Object is een entiteit waarvan de delen gedifferentieerde functionele rollen spelen met betrekking tot het geheel."
+    }
+    /*
+        Beschrijving: een Object is "iets of zichzelf", één geheel, één entiteit. Je kunt het aanwijzen of tellen. Het kan fysiek zijn of sociaal.
+        Examples: a person, a human body, an organization, a car, a house, John's car
+    */
+}
+
+class Collective specializes Substantial {
+    label {
+        @en "Collective"
+        @nl "Collectief"
+    }
+    description {
+        @en "A Collective is a Substantial that is composed of other individuals of the same sort, called members, that are functionally coordinated to play a common role with respect to the whole."
+        @nl "Een Collectief is een Substantieel dat bestaat uit andere individuen van dezelfde soort, zogenaamde leden, die functioneel zijn gecoördineerd om een gemeenschappelijke rol te spelen met betrekking tot het geheel."
+    }
+    /*
+        Beschrijving: Groep of verzameling van gelijksoortige dingen die samen iets vormen. Een collectief heeft eigen eigenschappen die niet van de individuele leden afhangen.
+        Examples: the Black Forest, a deck of cards, the Dutch-speaking group in the crowd
+    */
+}
+
+quantity Quantity specializes Substantial {
+    label {
+        @en "Quantity"
+        @nl "Hoeveelheid"
+    }
+    description {
+        @en "A Quantity is a Substantial that is a maximally-topologically-self-connected (e.g., pieces) of homeomerous amounts of matter."
+        @nl "Een Hoeveelheid is een Substantieel die een maximaal samenhangend stuk (of geheel) is van homogene materie."
+    }
+    /*
+        Beschrijving: een zelfstandig bestaand stuk materie dat overal uit hetzelfde soort spul bestaat en dat als één aaneengesloten geheel voorkomt. Niet-telbaar, wel deelbaar en meetbaar.
+        Examples: a lump of gold, a piece of wood, a portion of water
+    */
+}
+
+class Moment specializes Endurant {
+    label {
+        @en "Moment"
+        @nl "Moment"
+    }
+    description {
+        @en "A Moment is an Endurant that cannot independently exist. They depend on other individuals, called bearers, for their existence."
+        @nl "Een Moment is een Endurant dat niet onafhankelijk kan bestaan. Ze zijn voor hun bestaan afhankelijk van andere individuen, zogenaamde dragers."
+    }
+    /*
+        Examples: the color of a car, the role of a person in an organization, the employment of a person, the marriage between two persons, the ownership of a car by a person
+    */
+}
+
+class IntrinsicMoment specializes Moment {
+    label {
+        @en "Intrinsic Moment"
+        @nl "Intrinsiek Moment"
+    }
+    description {
+        @en "An Intrinsic Moment is a Moment that depends on a single bearer for its existence."
+        @nl "Een Intrinsiek Moment is een Moment dat voor zijn bestaan van een enkele drager afhankelijk is."
+    }
+    /*
+        Beschrijving: eigenschap of toestand die niet zelfstandig kan bestaan, maar altijd toebehoort aan een (1) andere entiteit, zijn drager.
+        Examples: the color of a car, the employment of a person
+    */
+}
+
+relator Relator specializes Moment {
+    label {
+        @en "Relator"
+        @nl "Relator"
+    }
+    description {
+        @en "A Relator is a Moment that depends on two or more bearers for its existence."
+        @nl "Een Relator is een Moment dat voor zijn bestaan van twee of meer dragers afhankelijk is."
+    }
+    /*
+        Beschrijving: eigenschap of toestand die niet zelfstandig kan bestaan, maar afhankelijk is van het bestaan van twee of meer andere entiteiten, de dragers.
+        Examples: the marriage between two persons, the ownership of a car by a person
+    */
+}
+
+category Quality specializes IntrinsicMoment {
+    label {
+        @en "Quality"
+        @nl "Kwaliteit"
+    }
+    description {
+        @en "A Quality is an Intrinsic Moment that inhere in and depends on a single bearer, called the quality bearer, for its existence. Qualities are particular and can be measured or perceived."
+        @nl "Een Kwaliteit is een Intrinsiek Moment dat inherent is aan en voor zijn bestaan van een enkele drager, de zogenaamde kwaliteitsdrager, afhankelijk is. Kwaliteiten zijn particulier en kunnen worden gemeten of waargenomen."
+    }
+    /*
+        Beschrijving: meetbare of waarneembare eigenschap. Een Quality is statisch.
+        Examples: the color of a car, the weight of a car, the size of a house, the shape of a table
+    */
+}
+
+@characterization relation Quality [0..*] -- inheresIn -- [1] Individual
+
+category Mode specializes IntrinsicMoment {
+    label {
+        @en "Mode"
+        @nl "Toestand"
+    }
+    description {
+        @en "A Mode is an Intrinsic Moment that can bear their own moment, including their own qualities, which can vary in independent ways."
+        @nl "Een Toestand is een Intrinsiek Moment dat zijn eigen moment kan dragen, inclusief zijn eigen kwaliteiten, die op onafhankelijke manieren kunnen variëren."
+    }
+    /*
+        Beschrijving: een Modus is hoe iets zich gedraagt of functioneert - niet wat het is, maar hoe het zich manifesteert of voelt. Een Modus is dynamisch en door gedrag bepaald.
+        Examples: the angryness of a person, the capability of a musician to play a violin, the trustworthyness of an organization
+    */    
+}
+
+category ExternallyDependentMode specializes Mode {
+    label {
+        @en "Externally Dependent Mode"
+        @nl "Extern afhankelijke toestand"
+    }
+    description {
+        @en "An Externally Dependent Mode is a Mode that inheres in an entity while being externally dependent on another entity, its bearer."
+        @nl "Een Extern Afhankelijke Modus is een Modus die inherent is aan een entiteit terwijl hij extern afhankelijk is van een andere entiteit, zijn drager."
+    }
+    /*
+        Beschrijving: een relatie-afhankelijke toestand
+        Examples: the love of John for Mary, the commitment of Paul towards Clara to meet for lunch next Friday
+    */
+}
+
+category QuaIndividual specializes ExternallyDependentMode {
+    label {
+        @en "Qua Individual"
+        @nl "Qua Individu"
+    }
+    description {
+        @en "A Qua Individual is an Externally Dependent Mode composed of other externally dependent modes that share the same bearer, the same source of external dependence, and the same foundational event."
+        @nl "Een Qua Individu is een Extern Afhankelijke Toestand die bestaat uit andere extern afhankelijke toestanden die dezelfde drager, dezelfde bron van externe afhankelijkheid en dezelfde fundamentele gebeurtenis delen."}
+    /*
+        Beschrijving: vertegenwoordigt hoe een entiteit bestaat in relatie tot iets anders - bijvoorbeeld als rol, positie of aspect dat het individu alleen heeft binnen die specifieke interactie of context. 
+        Het is een rol of verschijningsvorm van een entiteit binnen een specifieke context of relatie.
+        Examples: the role of a person in an organization, een slachtoffer in een bepaalde zaak, Jan als echtgenoot in het huwelijk tussen Jan en Marie
+    */
+}
+
+category Disposition specializes Mode {
+    label {
+        @en "Disposition"
+        @nl "Dispositie"
+    }
+    description {
+        @en "A Disposition is a Mode that potentially exists in an entity, can be activated under certain triggers or circumstances, and if activated leads to a certain event."
+        @nl "Een Dispositie is een Modus die potentieel bestaat in een entiteit, geactiveerd kan worden onder bepaalde triggers of omstandigheden en indien geactiveerd leidt tot een bepaalde gebeurtenis."
+    }
+    /*
+        Beschrijving: een eigenschap die iets het vermogen of de aanleg geeft om op een bepaalde manier te reageren wanneer de juiste omstandigheden zich voordoen.
+        Examples: the fragility of a glass, the solubility of salt in water, the function of a knife to cut, the capacity of a person to speak a language, the vulnerability of a person to certain diseases, the capability of an organisation to deliver a service, the authority of a judge to sentence someone
+    */
+}
+
+class AbstractIndividual specializes Individual
+
+class Proposition specializes AbstractIndividual {
+    label {
+        @en "Proposition"
+        @nl "Propositie"
+    }
+    description {
+        @en "A Proposition is an Abstract Individual that is the meaning of a statement, which can be expressed in different languages."
+        @nl "Een Propositie is een Abstract Individu dat de betekenis is van een uitspraak, die in verschillende talen kan worden uitgedrukt."
+    }
+    /*
+        Examples: "the sky is blue", "2 + 2 = 4", "the car is red"
+    */
+}
+
+
+
+class Quale specializes AbstractIndividual {
+    label {
+        @en "Quale"
+        @nl "Kwaliteit"
+    }
+    description {
+        @en "A Quale is an Abstract Individual that is the value of a Quality. Quales are particular and can be measured or perceived."
+        @nl "Een Kwaliteit is een Abstract Individu dat de waarde is van een Kwaliteit. Quales zijn particulier en kunnen worden gemeten of waargenomen."
+    }
+    /*
+        Examples: the color red, the weight 1500 kg, the size 50 square meters, the shape round
+    */
+}
+
+class Set specializes AbstractIndividual {
+    label {
+        @en "Set"
+        @nl "Verzameling"
+    }
+    description {
+        @en "A Set is an Abstract Individual that groups other individuals, called members, based on some criteria."
+        @nl "Een Verzameling is een Abstract Individu dat andere individuen, zogenaamde leden, groepeert op basis van bepaalde criteria."
+    }
+    /*
+        Examples: the set of all cars, the set of all persons, the set of all red objects
+    */
+}
+
+class QualityStructure specializes Set {
+    label {
+        @en "Quality Structure"
+        @nl "Kwaliteitsstructuur"
+    }
+    description {
+        @en "A Quality Structure is an Abstract Individual delimiting the space of possible values (qualia, singular quale) for qualities of a given quality class."
+        @nl "Een Kwaliteitsstructuur is een Abstract Individu dat de ruimte afbakent van mogelijke waarden (qualia, enkelvoudige quale) voor kwaliteiten van een bepaald kwaliteitsclass."}
+    /*
+        Examples: the color structure, the weight structure, the size structure
+    */
+}
+
+class QualityDimension specializes QualityStructure {
+    label {
+        @en "Quality Dimension"
+        @nl "Kwaliteitsdimensie"
+    }
+    description {
+        @en "A Quality Dimension is a Quality Structure for qualities of a given quality class along a single dimension."
+        @nl "Een Kwaliteitsdimensie is een Kwaliteitsstructuur voor kwaliteiten van een bepaald kwaliteitsclass langs een enkele dimensie."
+    }
+    /*
+        Examples: the color dimension, the weight dimension, the size dimension
+    */
+}
+
+class QualitySpace specializes QualityStructure {
+    label {
+        @en "Quality Space"
+        @nl "Kwaliteitsruimte"
+    }
+    description {
+        @en "A Quality Space is a Quality Structure for qualities of a given quality class along two or more dimensions."
+        @nl "Een Kwaliteitsruimte is een Kwaliteitsstructuur voor kwaliteiten van een bepaald kwaliteitsclass langs twee of meer dimensies."
+    }
+    /*
+        Examples: the color spindle, the taste tetrahedron
+    */
+}
+

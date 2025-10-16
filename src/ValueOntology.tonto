@@ -1,0 +1,24 @@
+import UFO-A-Ontology
+
+package ValueOntology
+
+quality Value specializes Quality {
+    label {
+        @en "Value"
+        @nl "Waarde"
+    }
+    description {
+        @en ""
+        @nl "Een emergente kwaliteit (mode) die bestaat door een Waardetoekenning — dat wil zeggen een mentale toestand van een agent (waardehouder) waarin een waarde wordt toegekend aan een waardedrager in een gegeven context, gebaseerd op de mate waarin de eigenschappen van de waardedrager de doelen, behoeften of voorkeuren van de waardehouder tegemoetkomen, waarbij baten als lasten tegen elkaar worden afgewogen."
+    }
+    /**
+    Beschrijving: Value is een relationeel en relationeel afhankelijke entiteit (mode). 
+    Het ontstaat via een Waardetoekenning: een agent (waardehouder) kent waarde toe aan een “waardedrager”
+    De werking van Value hangt af van:
+    - De mentale toestanden van de waardehouder (doelen, voorkeuren, verlangens, behoeften)
+    - De eigenschappen van de waardedrager die gewaardeerd wordt (kwaliteiten, gebruikskenmerken, etc.)
+    - De context waarin de waardetoekenning plaatsvindt
+    - De afweging tussen baten (“benefits”) en offers / lasten (“sacrifices”)
+    Examples: The value of a family heirloom may be sentimental rather than monetary, while the value of a service may be assessed based on its utility and impact on well-being.
+    */
+}
