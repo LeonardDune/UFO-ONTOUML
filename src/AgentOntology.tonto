@@ -1,6 +1,6 @@
-import UFO-A-Ontology
-import NormativeDescriptionOntology
-import ActionOntology
+import ObjectOntology
+import EventOntology
+import ModeOntology
 
 package AgentOntology
 
@@ -12,32 +12,42 @@ Sources:
 - Guizzardi, G., Wagner, G. (2004). Towards ontological foundations for agent modeling concepts using UFO. https://www.researchgate.net/publication/221394588_Towards_Ontological_Foundations_for_Agent_Modelling_Concepts_Using_the_Unified_Fundational_Ontology_UFO
 */
 
-category Agent specializes Object
+category Agent {
+
+}
 
 @creation relation Agent [1] -- creates -- [0..*] Action
-@participation relation Agent [1] -- performs -- [0..*] AgentContribution
+@participation relation Agent [1] -- performs -- [0..*] ActionContribution
 
 category SocialAgent specializes Agent
 
-category InstitutionalAgent specializes SocialAgent
+kind InstitutionalAgent specializes SocialAgent
 
-category CollectiveSocialAgent specializes SocialAgent, Collective
+collective CollectiveSocialAgent specializes SocialAgent
 
-category Society specializes CollectiveSocialAgent
+subkind Society specializes CollectiveSocialAgent
 
-category Ecosystem specializes CollectiveSocialAgent
+subkind Ecosystem specializes CollectiveSocialAgent
 
 @participational relation NormativeDescription [0..*] -- recognizedBy -- [1..*] SocialAgent
 
-category PhysicalAgent specializes Agent, PhysicalObject
+kind PhysicalAgent specializes Agent
 
-category IntentionalMoment specializes IntrinsicMoment
+@characterization relation IntentionalMoment [1..*] -- inheresIn -- [1] Agent
 
-category MentalMoment specializes IntentionalMoment
+@participation relation Agent [0..*] -- creates -- [1..*] Action
 
-category SocialMoment specializes IntentionalMoment, QuaIndividual
-
-@characterization relation IntrinsicMoment [1..*] -- inheresIn -- [1..*] Agent
-
-@participation relation Agent [0..*] -- participatesIn -- [1..*] Event
-
+roleMixin SocialRole specializes Agent {
+    label {
+        @en "Social Role"
+        @nl "Sociale Rol"
+    }
+    description {
+        @en "A Social Role is a Role that an individual or group can assume within a social context, which is defined by a set of norms, expectations, and behaviors associated with that role."
+        @nl "Een Sociale Rol is een Rol die een individu of groep kan aannemen binnen een sociale context, die wordt gedefinieerd door een reeks normen, verwachtingen en gedragingen die met die rol zijn geassocieerd."
+    }
+    /**
+    Beschrijving: This is a roleMixin because it is anti-rigid and relational - individuals can enter/leave the role without losing identity, based on social norms (not just attributes). The 'of objects' constrains to substantial agents (persons, organizations). It is used for normative descriptions to define roles like duties or permissions.
+    Note: Agent is a category in AgentOntology, so specializing as roleMixin allows flexibility for social contexts.
+    */
+}

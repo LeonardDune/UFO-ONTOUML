@@ -1,4 +1,6 @@
 import AgentOntology
+import EventOntology
+import ObjectOntology
 
 package ValueBearerOntology
 
@@ -23,7 +25,7 @@ roleMixin ValueBearer {
     */
 }
 
-roleMixin Valuation specializes Event {
+roleMixin Valuation specializes Action {
     label {
         @en "Valuation"
         @nl "Waardering"
@@ -38,7 +40,7 @@ roleMixin Valuation specializes Event {
     */
 }
 
-roleMixin ValueExperience specializes Event, ValueBearer {
+roleMixin ValueExperience specializes ValueBearer {
     label {
         @en "Value Experience"
         @nl "Waarde-ervaring"
@@ -53,7 +55,7 @@ roleMixin ValueExperience specializes Event, ValueBearer {
     */
 }
 
-roleMixin ValueObject specializes Substantial, ValueBearer {
+roleMixin ValueObject specializes ValueBearer, Object {
     label {
         @en "Value Object"
         @nl "Waarde-object"
@@ -96,7 +98,7 @@ roleMixin ValueBeholder specializes Agent {
 
 @participation relation ValueBeholder [1] -- participatesIn -- [1..*] Valuation
 
-mixin Context specializes Situation {
+situation Context {
     label {
         @en "Context"
         @nl "Context"

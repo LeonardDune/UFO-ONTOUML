@@ -1,6 +1,9 @@
+import IndividualOntology
 import ValueAscriptionOntology
 import ValueBearerOntology
 import AgentOntology
+import ModeOntology
+import EventOntology
 
 package OfferingOntology
 
@@ -18,7 +21,20 @@ roleMixin Offeror specializes Agent, ValueBeholder {
     */
 }
 
-relator Offering specializes CommunicativeAct, ValueObject {
+event Offer specializes CommunicativeAct {
+    label {
+        @en "Offer"
+        @nl "Aanbieding"
+    }
+    description {
+        @en "A communicative act, and what “counts as” a offer depends ultimately on the (social) context in which services are offered."
+        @nl "Een communicatieve handeling; wat als een Aanbod wordt beschouwd, hangt uiteindelijk af van de (sociale) context waarin diensten worden aangeboden."
+    }
+}
+
+@creation relation Offer [1] -- creates -- [1] Offering
+
+subkind Offering specializes SocialRelator {
     label {
         @en "Offering"
         @nl "Aanbod"
@@ -29,14 +45,10 @@ relator Offering specializes CommunicativeAct, ValueObject {
     }
 }
 
-relation Offering [1..*] -- involves -- [1] Offeror
-relation Offering [1..*] -- involves -- [1] EligiblePopulation
-/*
-Definition: An Offering involves one Offeror and one EligiblePopulation.
-Example: "John offers Mary to sell her his car for 5000 Euros", "Netflix offers streaming services in Italy for 15 Euros per month"
-*/
+relation Offering [1..*] -- providedBy -- [1] Offeror
+relation Offering [1..*] -- offeredTo -- [1] EligiblePopulation
 
-roleMixin EligiblePopulation specializes CollectiveSocialAgent {
+role EligiblePopulation specializes CollectiveSocialAgent {
     label {
         @en "Eligible Population"
         @nl "Bevoegde Populatie"
@@ -50,19 +62,29 @@ roleMixin EligiblePopulation specializes CollectiveSocialAgent {
     */
 }
 
-relation EligiblePopulation [1] <>-- composedOf -- [1..*] Agent 
-
-/*{
+roleMixin EligibleAgent specializes SocialAgent {
     label {
-        @en "composed of"
-        @nl "bestaande uit"
+        @en "Eligible Agent"
+        @nl "Bevoegde Agent"
     }
     description {
-        @en "An Target Group is composed of one or more Agents."
-        @nl "Een doelgroep bestaat uit een of meer Agenten."
+        @en "A Social Agent (usually an individual or organization) that, within the context of a specific mandate or policy unit, belongs to the population entitled to participate in or receive value from a particular offering."
+        @nl "Social Agent (meestal een individu of organisatie) die binnen de context van een bepaald mandaat of beleidseenheid behoort tot de populatie die gerechtigd is om deel te nemen aan of waarde te ontvangen uit een bepaald aanbod."
     }   
 }
-*/
+
+@memberOf relation EligiblePopulation [1..*] <>-- composedOf -- [1..*] EligibleAgent 
+
+subkind OfferingCommitment specializes SocialCommitment
+subkind OfferingClaim specializes SocialClaim
+
+@componentOf relation Offering [1] <o>-- [1..*] OfferingCommitment
+@componentOf relation Offering [1] <o>-- [1..*] OfferingClaim
+
+@characterization relation OfferingCommitment [1..*] -- inheresIn -- [1] Offeror
+@characterization relation OfferingClaim [1..*] -- inheresIn -- [1] EligiblePopulation
+
+@characterization relation OfferingCommitment [1..*] -- dependentOn -- [1] EligiblePopulation
 
 category Description specializes Individual {
     label {
@@ -106,7 +128,7 @@ category ExperienceDescription specializes Description {
         Examples: "the transfer of ownership of a car", "the right to use a streaming service"
     */
     }
-relation ExperienceDescription [0..1] -- describes -- [1..*] Event
+relation ExperienceDescription [0..1] -- describes -- [1..*] Action
 
 category Content specializes ExperienceDescription {
     label {

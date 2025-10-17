@@ -1,4 +1,3 @@
-import UFO-A-Ontology
 import ValueBearerOntology
 import ValueAscriptionOntology
 import OfferingOntology
@@ -21,7 +20,7 @@ relator ValueProposition {
     */
 }
 
-roleMixin TargetGroup specializes CollectiveSocialAgent {
+role TargetGroup specializes CollectiveSocialAgent {
     label {
         @en "Target Group"
         @nl "Doelgroep"
@@ -37,7 +36,7 @@ roleMixin TargetGroup specializes CollectiveSocialAgent {
 
 relation ValueProposition [1..*] -- involves -- [1] TargetGroup
 
-relation TargetGroup [0..*] <>-- hasMember -- [2..*] ValueBeneficiary
+relation TargetGroup [0..*] <>-- hasMember -- [2..*] ValueBenificiary
 relation TargetGroup [0..*] <>-- hasSub -- [0..*] TargetGroup
 
 subkind BusinessValueProposition specializes ValueProposition {

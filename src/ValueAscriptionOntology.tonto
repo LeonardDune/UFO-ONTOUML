@@ -1,5 +1,6 @@
-import UFO-A-Ontology
+import IndividualOntology
 import AgentOntology
+import ModeOntology
 import ValueBearerOntology
 import ValueOntology
 
@@ -114,7 +115,7 @@ relation VAComponent [0..*] <>-- [1..*] Quality
 relation VAComponent [0..*] <>-- [1] MentalMoment
 relation VAComponent [1..*] -- involves -- [1] ValueBenificiary
 
-quality ValueComponent specializes Quality {
+quality ValueComponent {
     label {
         @en "Value Component"
         @nl "Waardecomponent"

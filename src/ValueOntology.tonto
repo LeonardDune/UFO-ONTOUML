@@ -1,8 +1,6 @@
-import UFO-A-Ontology
-
 package ValueOntology
 
-quality Value specializes Quality {
+quality Value {
     label {
         @en "Value"
         @nl "Waarde"

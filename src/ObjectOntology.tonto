@@ -1,9 +1,11 @@
-import UFO-A-Ontology
 import AgentOntology
+import IndividualOntology
 
-package NormativeDescriptionOntology
+package ObjectOntology
 
-category SocialObject specializes Object of objects {
+category Object specializes Individual 
+
+kind SocialObject specializes Object {
     label {
         @en "Social Object"
         @nl "Sociaal Object"
@@ -17,7 +19,7 @@ category SocialObject specializes Object of objects {
     */
 }
 
-category PhysicalObject specializes Object of objects {
+kind PhysicalObject specializes Object {
     label {
         @en "Physical Object"
         @nl "Fysiek Object"
@@ -31,7 +33,7 @@ category PhysicalObject specializes Object of objects {
     */
 }
 
-mixin Resource specializes Object {
+kind Resource specializes Object {
     label {
         @en "Resource"
         @nl "Hulpbron"
@@ -46,7 +48,7 @@ mixin Resource specializes Object {
     */
 }
 
-category NormativeDescription specializes SocialObject of objects {
+subkind NormativeDescription specializes SocialObject {
     label {
         @en "Normative Description"
         @nl "Normatieve Beschrijving"
@@ -63,17 +65,4 @@ category NormativeDescription specializes SocialObject of objects {
 
 @formal relation NormativeDescription [0..1] -- defines -- [1..*] Object
 
-roleMixin SocialRole specializes Agent of objects {
-    label {
-        @en "Social Role"
-        @nl "Sociale Rol"
-    }
-    description {
-        @en "A Social Role is a Role that an individual or group can assume within a social context, which is defined by a set of norms, expectations, and behaviors associated with that role."
-        @nl "Een Sociale Rol is een Rol die een individu of groep kan aannemen binnen een sociale context, die wordt gedefinieerd door een reeks normen, verwachtingen en gedragingen die met die rol zijn geassocieerd."
-    }
-    /**
-    Beschrijving: This is a roleMixin because it is anti-rigid and relational - individuals can enter/leave the role without losing identity, based on social norms (not just attributes). The 'of objects' constrains to substantial agents (persons, organizations). It is used for normative descriptions to define roles like duties or permissions.
-    Note: Agent is a category in AgentOntology, so specializing as roleMixin allows flexibility for social contexts.
-    */
-}
+

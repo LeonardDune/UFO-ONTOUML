@@ -1,9 +1,56 @@
-import UFO-A-Ontology
-import UFO-B-Ontology
+import ObjectOntology
+import IndividualOntology
 
-package ActionOntology
+package EventOntology
 
-category Action specializes Event {
+event AtomicEvent {
+    label {
+        @en "Atomic Event"
+        @nl "Atomische Gebeurtenis"
+    }
+    description {
+        @en "An Atomic Event is an Event that cannot be decomposed into smaller Events."
+        @nl "Een Atomische Gebeurtenis is een Gebeurtenis die niet kan worden opgesplitst in kleinere Gebeurtenissen."
+    }
+    /*
+        Beschrijving: een atomic event is een event dat niet verder kan worden opgesplitst in kleinere events - het is de kleinste eenheid van gebeurtenis die nog steeds als een gebeurtenis kan worden beschouwd.
+        Examples: the happening of a car accident, the happening of a marriage, the happening of a concert, the happening of a car being sold, the happening of a person using a streaming service
+    */
+}
+
+event ComplexEvent {
+    label {
+        @en "Complex Event"
+        @nl "Complexe Gebeurtenis"
+    }
+    description {
+        @en "A Complex Event is an Event that can be decomposed into smaller Events."
+        @nl "Een Complexe Gebeurtenis is een Gebeurtenis die kan worden opgesplitst in kleinere Gebeurtenissen."
+    }
+    /*
+        Beschrijving: een complex event is een event dat kan worden opgesplitst in kleinere events - het is een samenstelling van meerdere atomic events die samen een grotere gebeurtenis vormen.
+        Examples: the happening of a wedding ceremony (which may include multiple atomic events such as the exchange of vows, the signing of the marriage certificate, and the celebration afterwards), the happening of a music festival (which may include multiple atomic events such as individual concerts, food stalls, and other activities)
+    */
+}
+
+relator Participation {
+    label {
+        @en "Participation"
+        @nl "Participatie"
+    }
+    description {
+        @en "Participation is a Relation that connects a Object to an Event in which it participates."
+        @nl "Participatie is een Relatie die een Object verbindt met een Gebeurtenis waaraan het deelneemt."
+    }
+    /*
+        Beschrijving: een participation relation geeft aan dat een substantial deelneemt aan een event - het is de manier waarop we de betrokkenheid van substantials bij gebeurtenissen modelleren.
+        Examples: a person participating in a wedding ceremony, a car being involved in a car accident, a band performing at a concert
+    */
+}
+
+@participation relation Participation [0..*] -- participationOf -- [1..*] Object
+
+event Action specializes Individual {
     label {
         @en "Action"
         @nl "Activiteit"
@@ -18,9 +65,11 @@ category Action specializes Event {
     */
 }
 
-category ActionContribution specializes Action, Participation
+@participation relation Action [0..*] -- participationOf -- [1..*] Object
 
-category AtomicAction specializes Action, AtomicEvent {
+event ActionContribution specializes Action
+
+event AtomicAction specializes Action {
     label {
         @en "Atomic Action"
         @nl "Atomische Activiteit"
@@ -35,7 +84,7 @@ category AtomicAction specializes Action, AtomicEvent {
     */
 }
 
-category ComplexAction specializes Action, ComplexEvent {
+event ComplexAction specializes Action {
     label {
         @en "Complex Action"
         @nl "Complexe Activiteit"
@@ -50,13 +99,13 @@ category ComplexAction specializes Action, ComplexEvent {
     */
 }
 
-category CommunicativeAct specializes AtomicAction, ComplexEvent {
+event CommunicativeAct specializes AtomicAction {
     label {
         @en "Communicative Act"
         @nl "Communicatieve Handeling"
     }
     description {
-        @en "A Communicative Act is an Atomic Action that involves the exchange of information or messages between twee Agents."
+        @en "A Communicative Act is an Atomic Action that involves the exchange of information or messages between two Agents."
         @nl "Een Communicatieve Handeling is een Atomische Activiteit die de uitwisseling van informatie of berichten tussen Agenten omvat."
     }
     /*
@@ -65,7 +114,7 @@ category CommunicativeAct specializes AtomicAction, ComplexEvent {
     */
 }
 
-category Interaction specializes ComplexAction, ComplexEvent {
+event Interaction specializes ComplexAction {
     label {
         @en "Interaction"
         @nl "Interactie"
