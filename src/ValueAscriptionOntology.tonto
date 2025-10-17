@@ -11,7 +11,7 @@ Source:
     - Tiago Prince Sales, Sales, T. P., Nicola Guarino, Guarino, N., Giancarlo Guizzardi, Guizzardi, G., John Mylopoulos, & Mylopoulos, J. (2017). An Ontological Analysis of Value Propositions. 184-193. https://doi.org/10.1109/edoc.2017.32
 */
 
-relator ValueAscription specializes Relator {
+relator ValueAscription {
     label {
         @en "Value Ascription"
         @nl "Waardetoekenning"
@@ -94,7 +94,7 @@ relation ValueAscription [1..*] -- involves -- [1] ValueBearer
 
 relation Value [1] -- inheresIn -- [1] ValueAscription
 
-relator VAComponent specializes Relator {
+relator VAComponent {
     label {
         @en "Value Ascription Component"
         @nl "Waardetoeschrijvingscomponent"
@@ -159,7 +159,3 @@ subkind Sacrifice specializes ValueComponent {
 }
 
 relation ValueComponent [1..*] -- inheresIn -- [1] VAComponent
-
-
-
-

@@ -17,8 +17,8 @@ class Event specializes Perdurant {
     */
 }
 
-@bringsAbout relation Situation [1] -- bringsAbout -- [1] Event // pre-state
-@triggers relation Event [1..*] -- triggers -- [0..*] Situation // post-state
+@bringsAbout relation Situation [1] -- preState -- [1] Event // pre-state
+@triggers relation Event [1..*] -- postState -- [0..*] Situation // post-state
 
 category AtomicEvent specializes Event {
     label {
@@ -50,7 +50,7 @@ category ComplexEvent specializes Event {
     */
 }
 
-category Participation specializes Relation {
+category Participation specializes Relator {
     label {
         @en "Participation"
         @nl "Participatie"

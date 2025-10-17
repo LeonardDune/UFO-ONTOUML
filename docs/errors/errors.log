@@ -1,0 +1,120 @@
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class ValueProposition is specializing multiple classes that represent ultimate sortals: «relator»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class BusinessValueProposition is specializing multiple classes that represent ultimate sortals: «relator»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class PublicValueProposition is specializing multiple classes that represent ultimate sortals: «relator»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class OfferingValueProposition is specializing multiple classes that represent ultimate sortals: «relator»
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Value are not among the allowed ontological natures of its superclass Quality
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class ValueAscription is specializing other classes that represent ultimate sortals: «relator»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class VAExAnte is specializing multiple classes that represent ultimate sortals: «relator»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class VAExPost is specializing multiple classes that represent ultimate sortals: «relator»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class ValuePerception is specializing multiple classes that represent ultimate sortals: «relator»
+[error] Every sortal class must specialize a unique ultimate sortal:
+The class ValueAssertion is specializing multiple classes that represent ultimate sortals: «relator»
+[error] Classes representing ultimate sortals cannot specialize other ultimate sortals:
+The class VAComponent is specializing other classes that represent ultimate sortals: «relator»
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of ValueComponent are not among the allowed ontological natures of its superclass Quality
+[error] Not unique class stereotype:
+The class Event must have a unique OntoUML stereotype.
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Event are not among the allowed ontological natures of its superclass Perdurant
+[error] Not unique class stereotype:
+The class Thing must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Individual must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class ConcreteIndividual must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Perdurant must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Endurant must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Situation must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Substantial must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Object must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Collective must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Moment must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class IntrinsicMoment must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class AbstractIndividual must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Proposition must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Quale must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class Set must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class QualityStructure must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class QualityDimension must have a unique OntoUML stereotype.
+[error] Not unique class stereotype:
+The class QualitySpace must have a unique OntoUML stereotype.
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Individual are not among the allowed ontological natures of its superclass Thing
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of ConcreteIndividual are not among the allowed ontological natures of its superclass Individual
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Perdurant are not among the allowed ontological natures of its superclass ConcreteIndividual
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Endurant are not among the allowed ontological natures of its superclass ConcreteIndividual
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Situation are not among the allowed ontological natures of its superclass Endurant
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Substantial are not among the allowed ontological natures of its superclass Endurant
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Object are not among the allowed ontological natures of its superclass Substantial
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Collective are not among the allowed ontological natures of its superclass Substantial
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Quantity are not among the allowed ontological natures of its superclass Substantial
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Moment are not among the allowed ontological natures of its superclass Endurant
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of IntrinsicMoment are not among the allowed ontological natures of its superclass Moment
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Relator are not among the allowed ontological natures of its superclass Moment
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Quality are not among the allowed ontological natures of its superclass IntrinsicMoment
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Mode are not among the allowed ontological natures of its superclass IntrinsicMoment
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of AbstractIndividual are not among the allowed ontological natures of its superclass Individual
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Proposition are not among the allowed ontological natures of its superclass AbstractIndividual
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Quale are not among the allowed ontological natures of its superclass AbstractIndividual
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Set are not among the allowed ontological natures of its superclass AbstractIndividual
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of QualityStructure are not among the allowed ontological natures of its superclass Set
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of QualityDimension are not among the allowed ontological natures of its superclass QualityStructure
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of QualitySpace are not among the allowed ontological natures of its superclass QualityStructure
+[error] Prohibited generalization: rigid/semi-rigid specializing an anti-rigid:
+The rigid/semi-rigid class Offering cannot specialize the anti-rigid class ValueObject
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Offering are not among the allowed ontological natures of its superclass ValueObject
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of SocialObject are not among the allowed ontological natures of its superclass Object
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Agent are not among the allowed ontological natures of its superclass Object
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of CollectiveSocialAgent are not among the allowed ontological natures of its superclass Collective
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of IntentionalMoment are not among the allowed ontological natures of its superclass IntrinsicMoment
+[error] Prohibited generalization: incompatible 'restrictedTo' values:
+The allowed ontological natures of instances of Action are not among the allowed ontological natures of its superclass Event
