@@ -3,6 +3,7 @@ import EventOntology
 import ModeOntology
 import IndividualOntology
 import ObjectOntology
+import ValueBearerOntology
 
 package LegalOntology
 
@@ -11,7 +12,13 @@ Deze module implementeert UFO-L, een juridische kernontologie gebaseerd op Rober
 gegrond in de Unified Foundational Ontology (UFO). Het richt zich op juridische relaties, posities en patronen,
 inspiratie uit Hohfeld's correlatives en opposites, en onderscheidt tussen rechten, plichten, bevoegdheden, etc.
 
+De concepten uit het Juridisch Analyse Schema (JAS) van Wetsanalyse zijn gebruikt voor de ontwikkeling van deze module
+en in overeenstemming gebracht met de UFO-L ontologie. Dit zorgt voor een brug tussen de Nederlandse juridische
+analysemethodologie en de internationale ontologische standaardisatie.
+
 Bibliography:
+- Ausems, A., Bulles, J., Lokin, M. (2021). Wetsanalyse, Voor een werkbare uitvoering van wetgeving met ICT. Boom uitgevers Den Haag.
+  https://www.boomdenhaag.nl/webshop/wetsanalyse
 - Griffo, C., Almeida, J.P.A., Guizzardi, G. (2015). Towards a Legal Core Ontology based on Alexy's Theory of Fundamental Rights.
   https://www.researchgate.net/publication/283271774_Towards_a_Legal_Core_Ontology_based_on_Alexy's_Theory_of_Fundamental_Rights
 - Griffo, C., Almeida, J.P.A., Guizzardi, G. (2016). A Pattern for the Representation of Legal Relations in a Legal Core Ontology.
@@ -23,6 +30,173 @@ Bibliography:
 
 Focus op relationele perspectief (niet normatief), met patronen voor modellering van juridische fenomenen zoals recht op leven, belastingbevoegdheden, en besluitvorming.
 */
+
+// Rollen voor rechtssubjecten en rechtsobjecten gebaseerd op Wetsanalyse JAS
+roleMixin LegalSubject specializes Agent {
+    label {
+        @en "Legal Subject"
+        @nl "Rechtssubject"
+    }
+    description {
+        @en "A legal subject is the bearer of rights and duties. It is a party in a legal relation."
+        @nl "Een rechtssubject is de drager van rechten en plichten. Het is een partij in een rechtsbetrekking."
+    }
+    /*
+        Beschrijving: Rechtssubjecten zijn de actoren in juridische betrekkingen die rechten kunnen hebben of plichten kunnen dragen.
+        Voorbeelden: Personen, bedrijven, overheden die partij zijn in juridische relaties.
+    */
+}
+
+roleMixin Claimant specializes LegalSubject {
+    label {
+        @en "Claimant"
+        @nl "Rechthebbende"
+    }
+    description {
+        @en "A legal subject that holds a claim or right in a legal relation."
+        @nl "Een rechtssubject dat een aanspraak of recht heeft in een rechtsbetrekking."
+    }
+    /*
+        Beschrijving: De rechthebbende heeft een recht tegenover een ander rechtssubject.
+        Voorbeelden: De belastingplichtige die recht heeft op teruggave, de werknemer met recht op loon.
+    */
+}
+
+roleMixin Committor specializes LegalSubject {
+    label {
+        @en "Committor"
+        @nl "Plichthebbende"
+    }
+    description {
+        @en "A legal subject that has a commitment or duty in a legal relation."
+        @nl "Een rechtssubject dat een commitment of plicht heeft in een rechtsbetrekking."
+    }
+    /*
+        Beschrijving: De plichthebbende heeft een verplichting tegenover een ander rechtssubject.
+        Voorbeelden: De werkgever die verplicht is loon te betalen, de overheid die onderwijsplicht heeft.
+    */
+}
+
+roleMixin LegalObject specializes ValueBearer {
+    label {
+        @en "Legal Object"
+        @nl "Rechtsobject"
+    }
+    description {
+        @en "A legal object is the subject of a legal relation and/or legal fact."
+        @nl "Een rechtsobject is het voorwerp van een rechtsbetrekking en/of rechtsfeit."
+    }
+    /*
+        Beschrijving: Rechtsobjecten zijn de zaken, rechten of andere entiteiten waarover de rechtsbetrekking gaat.
+        Voorbeelden: Een huis in een koopcontract, geld bij belastingheffing, een dienstverleningsovereenkomst.
+    */
+}
+
+// JAS concepten: Voorwaarde, Afleidingsregel, etc.
+situation LegalCondition {
+    label {
+        @en "Legal Condition"
+        @nl "Voorwaarde"
+    }
+    description {
+        @en "A condition is a circumstance that must be fulfilled for a legal consequence to occur."
+        @nl "Een voorwaarde is een omstandigheid waaraan voldaan moet zijn voor het intreden van een rechtsgevolg."
+    }
+    /*
+        Beschrijving: Voorwaarden beschrijven de omstandigheden die moeten gelden voordat juridische gevolgen intreden.
+        Voorbeelden: 'Indien de belastingplichtige een aanvraag indient', 'mits het inkomen boven een drempel ligt'.
+    */
+}
+
+mode DerivationRule {
+    label {
+        @en "Derivation Rule"
+        @nl "Afleidingsregel"
+    }
+    description {
+        @en "A derivation rule is a rule that creates new facts or values using existing facts or values."
+        @nl "Een afleidingsregel is een regel die nieuwe feiten of waarden creëert met behulp van bestaande feiten of waarden."
+    }
+    /*
+        Beschrijving: Afleidingsregels leiden nieuwe juridische consequenties af uit bestaande gegevens via berekeningen of beslissingen.
+        Voorbeelden: Belastingberekening op basis van inkomen, beslissing of iemand recht heeft op een uitkering.
+    */
+}
+
+quality LegalVariable {
+    label {
+        @en "Legal Variable"
+        @nl "Variabele"
+    }
+    description {
+        @en "A variable is a characteristic of a legal subject, legal object, legal relation or legal fact that can have different values for different instances."
+        @nl "Een variabele is een kenmerk van een rechtssubject, rechtsobject, rechtsbetrekking of rechtsfeit dat voor verschillende instanties daarvan een andere waarde kan hebben."
+    }
+    /*
+        Beschrijving: Variabelen vertegenwoordigen de kenmerken die variëren tussen verschillende gevallen van juridische entiteiten.
+        Voorbeelden: Het inkomen van een belastingplichtige, de leeftijd van een persoon, het bedrag van een boete.
+    */
+}
+
+mode LegalOperator {
+    label {
+        @en "Legal Operator"
+        @nl "Operator"
+    }
+    description {
+        @en "An operator expresses a calculation, comparison, or logical connection between values."
+        @nl "Een operator drukt een rekensom, vergelijking of logische verbinding tussen waarden uit."
+    }
+    /*
+        Beschrijving: Operatoren verbinden verschillende elementen in juridische regels en berekeningen.
+        Voorbeelden: '+' voor optellen in belastingberekening, '>' voor vergelijking van bedragen, 'en' voor cumulatieve voorwaarden.
+    */
+}
+
+quality TimeIndication {
+    label {
+        @en "Time Indication"
+        @nl "Tijdsaanduiding"
+    }
+    description {
+        @en "A time indication specifies a point in time or time period relevant to legal relations."
+        @nl "Een tijdsaanduiding omschrijft een tijdstip of tijdsduur die relevant is voor juridische betrekkingen."
+    }
+    /*
+        Beschrijving: Tijdsaanduidingen bepalen wanneer juridische betrekkingen gelden of wanneer acties moeten plaatsvinden.
+        Voorbeelden: 'vanaf 1 januari 2024', 'binnen 6 maanden na aanvraag', 'gedurende de looptijd van het contract'.
+    */
+}
+
+quality PlaceIndication {
+    label {
+        @en "Place Indication"
+        @nl "Plaatsaanduiding"
+    }
+    description {
+        @en "A place indication determines the territorial scope of application of legal rules."
+        @nl "Een plaatsaanduiding bepaalt het territoriale toepassingsbereik van juridische regels."
+    }
+    /*
+        Beschrijving: Plaatsaanduidingen geven aan waar de juridische regels van toepassing zijn.
+        Voorbeelden: 'in Nederland', 'binnen de gemeente Amsterdam', 'op Europees niveau'.
+    */
+}
+
+event DelegationFilling specializes InstitutionalAct {
+    label {
+        @en "Delegation Filling"
+        @nl "Delegatie-invulling"
+    }
+    description {
+        @en "A delegation filling is the regulation or provision in which a delegation authority is exercised."
+        @nl "Een delegatie-invulling is de regeling of bepaling waarin een delegatiebevoegdheid wordt gebruikt."
+    }
+    /*
+        Beschrijving: Delegatie-invullingen zijn de concrete regels die voortkomen uit gedelegeerde bevoegdheden.
+        Voorbeelden: Een ministerieel besluit dat een amvb uitvoert, een gemeentelijke verordening die provinciale bevoegdheden invult.
+    */
+}
 
 // LegalRelator als specialisatie van SocialRelator (uit UFO-C)
 /**
@@ -185,15 +359,19 @@ InstitutionalAct: Een actie die juridische relaties creëert/wijzigt, zoals cont
 Gebaseerd op institutionele acties in power-relators (Griffo et al., 2023).
 Voorbeelden: Ondertekening van contract (creëert rights/duties); stemming in parlement (creëert nieuwe wet).
 */
-event InstitutionalAct {
+event InstitutionalAct specializes CommunicativeAct {
     label {
         @en "Institutional Act"
         @nl "Institutionele Actie"
     }
     description {
-        @en "An act creating/modifying legal relations, grounded in norms."
-        @nl "Een actie die juridische relaties creëert/wijzigt, gegrond in normen."
+        @en "A communicative act that creates, modifies, or extinguishes legal relations through institutional means."
+        @nl "Een communicatieve handeling die juridische betrekkingen creëert, wijzigt of doet eindigen door institutionele middelen."
     }
+    /*
+        Beschrijving: Een institutionele actie is een communicatieve handeling waarbij juridische gevolgen worden gecreëerd door middel van communicatie in een institutionele context.
+        Voorbeelden: Ondertekening van contracten, uitvaardiging van wetten, vonnissen van rechters.
+    */
 }
 
 // Patronen: Recht-Plicht Relator (uit Griffo et al., 2016)
@@ -254,6 +432,19 @@ relation Power [1] -- inheresIn -- [1] Agent
 relation Subjection [1] -- inheresIn -- [1] Agent
 relation Disability [1] -- inheresIn -- [1] Agent
 relation Immunity [1] -- inheresIn -- [1] Agent
+
+relation LegalRelator [1] -- involves -- [1] Claimant
+relation LegalRelator [1] -- involves -- [1] Committor
+relation LegalRelator [1] -- concerns -- [0..*] LegalObject
+
+// Eigenschappen van rechtsbetrekkingen
+relation LegalCondition [0..1] -- conditions -- [1] LegalRelator
+relation DerivationRule [0..1] -- governs -- [1] LegalRelator
+relation LegalOperator [0..1] -- usedIn -- [1] DerivationRule
+relation TimeIndication [1] -- inheresIn -- [1] LegalRelator
+relation PlaceIndication [1] -- inheresIn -- [1] LegalRelator
+
+relation DelegationFilling [1] -- fulfills -- [1] Power
 
 // Samenstelling van relators
 relation LegalRelator [1] -- composedOf -- [2..*] LegalClaim
