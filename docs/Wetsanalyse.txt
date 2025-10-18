@@ -1,0 +1,191 @@
+Subklassen
+Binnen rechtsbetrekkingen zijn subklassen te onderkennen. Al aan het begin van
+de twintigste eeuw beschreef rechtsgeleerde Hohfeld een aantal verschillende
+subklassen van rechtsbetrekkingen.66 Alleen het onderscheid maken tussen recht en
+plicht vond hij te beperkt. Hohfeld onderscheidde vier soorten rechtsbetrekkingen:
+a. aanspraak – verplichting;
+b. bevoegdheid – gehoudenheid;
+c. immuniteit – geen bevoegdheid;
+d. vrijheid – geen aanspraak.
+We lichten deze hierna toe en geven voorbeelden per subklasse.
+a. Aanspraak – verplichting
+Een aanspraak – verplichting is het meest voorkomende type rechtsbetrekking.
+Hierbij heeft het ene rechts subject de verplichting om een bepaalde handeling uit
+te voeren of na te laten. Het andere rechts subject kan er aanspraak op maken dat
+de handeling daadwerkelijk wordt verricht. Een voorbeeld is de verplichting tot het
+betalen van motorrijtuigenbelasting. Deze rust op de houder van (het kenteken van)
+een motorrijtuig. De ontvanger (in de zin van de Invorderingswet) heeft de aanspraak
+de betaling te ontvangen.
+Binnen dit type rechtsbetrekking kunnen we drie varianten onderscheiden:
+1. krachtige aanspraak – fatale verplichting;
+2. aanspraak na ingebrekestelling – verplichting na ingebrekestelling;
+3. zwakke aanspraak – zwakke verplichting.
+Het verschil in deze drie varianten zit in de rechtsgevolgen van het niet-nakomen
+van de verplichting door het rechts subject:
+Ad 1. Bij een krachtige aanspraak heeft het rechthebbende rechts subject een
+mogelijkheid om het niet-nakomen van de verplichting direct af te dwingen.
+Ad 2. Bij de aanspraak na ingebrekestelling moet het rechthebbende rechts subject
+de plichthebbende partij in gebreke stellen, voordat hij de stap naar het
+afdwingen kan zetten.67
+66 ] Hohfeld 1913.
+67 ] De aanspraak na ingebrekestelling komt in privaatrechtelijke rechtsbetrekkingen voor bij het nietnakomen
+van een overeenkomst. Het recht op ontbinding en de verplichting tot schadevergoeding
+ontstaan pas na ingebrekestelling. In het publiekrecht is deze rechtsbetrekking bijvoorbeeld
+te vinden in titel 4.4 Awb over bestuursrechtelijke geldschulden (artikel 4:112 over aanmaning
+94
+WETSANALYSE
+Ad 3. Bij de zwakke aanspraak is er geen mogelijkheid om nakoming af te dwingen.
+Het rechthebbende rechts subject heeft dus geen middel om een vervolgstap
+te zetten bij niet-nakoming door het plichthebbende rechts subject.
+Voorbeeld krachtige aanspraak – fatale verplichting
+Artikel 25 Algemene wet inzake rijksbelastingen
+3. Indien het bezwaar is gericht tegen een aanslag, een navorderingsaanslag,
+een naheffingsaanslag of een beschikking, met betrekking tot welke de
+vereiste aangifte niet is gedaan of sprake is van een onherroepelijk geworden
+informatiebeschikking als bedoeld in artikel 52a, eerste lid, wordt bij de uitspraak
+op het bezwaarschrift de belastingaanslag of beschikking gehandhaafd, tenzij
+is gebleken dat en in hoeverre die belastingaanslag of beschikking onjuist is. De
+eerste volzin vindt geen toepassing voor zover het bezwaar is gericht tegen een
+vergrijpboete.
+Dit artikel beschrijft een krachtige aanspraak en fatale verplichting. De fatale
+verplichting is te herkennen aan de woorden vereiste aangifte niet is gedaan of
+sprake is (…) informatiebeschikking in combinatie met wordt (…) gehandhaafd.
+Direct na het niet-nakomen van de verplichtingen volgt de ‘sanctie’ in de vorm
+van een omkering van de bewijslast. Dat houdt in dat de belastingplichtige moet
+bewijzen dat een belastingaanslag niet juist is, in plaats van dat de inspecteur moet
+bewijzen dat de belastingaanslag juist is.
+Voorbeeld aanspraak na ingebrekestelling – verplichting na ingebrekestelling
+Artikel 9 Algemene wet inzake rijksbelastingen
+1. Met betrekking tot belastingen welke ingevolge de belastingwet bij wege van
+aanslag worden geheven, wordt de aangifte gedaan bij de inspecteur binnen een
+door deze gestelde termijn van ten minste een maand na het uitnodigen tot het
+doen van aangifte.
+(…)
+3. De inspecteur kan niet eerder dan na verloop van de in het eerste,
+onderscheidenlijk het tweede lid bedoelde termijn de belastingplichtige aanmanen
+binnen een door hem te stellen termijn aangifte te doen.
+na verzuim) en in paragraaf 4.1.3.2 Awb over de dwangsom bij niet tijdig beslissen (ingevolge
+artikel 4:16 Awb is deze actie pas mogelijk nadat de belanghebbende het bestuursorgaan in gebreke
+heeft gesteld).
+95
+4 / HET JURIDISCHE ANALYSESCHEMA
+Het eerste lid beschrijft in samenhang met het derde lid een verplichting en
+aanspraak na ingebrekestelling. De verplichting is te herkennen aan de woorden
+wordt de aangifte gedaan. De ingebrekestelling is af te leiden uit de woorden
+niet eerder dan (…) de belastingplichtige aanmanen (…) aangifte te doen. Een
+aangifteplichtige is dus niet onmiddellijk in verzuim indien hij binnen de door de
+inspecteur daartoe gestelde termijn geen aangifte doet (eerste lid). Uit artikel 9,
+derde lid, blijkt namelijk dat de inspecteur eerst zal moeten aanmanen. Pas
+als aan deze ‘ingebrekestelling’ geen gevolg wordt gegeven, is sprake van een
+aangifteverzuim, waarvoor de inspecteur een boete kan vaststellen op grond van
+artikel 67a AWR.
+Voorbeeld zwakke aanspraak – zwakke verplichting
+Artikel 2 Wet op de ondernemingsraden
+1. De ondernemer die een onderneming in stand houdt waarin in de regel ten minste
+50 personen werkzaam zijn, is in het belang van het goed functioneren van die
+onderneming in al haar doelstellingen verplicht om ten behoeve van het overleg
+met en de vertegenwoordiging van de in de onderneming werkzame personen een
+ondernemingsraad in te stellen en jegens deze raad de voorschriften, gesteld bij of
+krachtens deze wet, na te leven.
+Dit artikel legt een ondernemer de verplichting op om een ondernemingsraad in te
+stellen. De werknemer kan hier aanspraak op maken, maar een directe sanctie op
+het niet instellen van een ondernemingsraad ontbreekt in de wet. Er is bijvoorbeeld
+geen toezichthouder die een boete kan opleggen indien de verplichting niet wordt
+nagekomen. Werknemers kunnen wel naar de rechter stappen om hun aanspraak
+om te laten zetten naar een krachtige aanspraak via een vonnis van een rechter
+(artikel 26 Wet op de ondernemingsraden (WOR)). De rechter kan dan op grond van
+artikel 26, zesde lid, WOR in combinatie met artikel 1, sub 4, Wet op de economische
+delicten alsnog een sanctie opleggen.
+b. Bevoegdheid – gehoudenheid
+Een bevoegdheid – gehoudenheid beschrijft de mogelijkheid voor het rechthebbende
+rechts subject om een rechtshandeling te verrichten. Het plichthebbende rechtssubject
+kan hier geen invloed op uitoefenen. Hij is gehouden of onderworpen aan
+de uitoefening van de bevoegdheid. Bij dit type rechtsbetrekking komen twee
+verschillende varianten voor:
+1. discretionaire bevoegdheid – gehoudenheid;
+2. gebonden bevoegdheid – gehoudenheid.
+96
+WETSANALYSE
+Een gebonden bevoegdheid moet uitgeoefend worden als aan de voorwaarden
+hiervoor is voldaan. Bij een discretionaire bevoegdheid bestaat beslissingsruimte
+om de bevoegdheid al dan niet uit te oefenen, eventueel afhankelijk van bepaalde
+voorwaarden. Een discretionaire bevoegdheid kan ook ruimte laten wat betreft
+de wijze waarop het bestuursorgaan deze invult. Die invulling wordt bij voorkeur
+vastgelegd in beleidsregels, zodat deze kenbaar is voor de rechts subjecten die ermee
+te maken krijgen. Een discretionaire bevoegdheid is te herkennen aan bewoordingen
+als ‘kan’ en ‘naar zijn oordeel’.
+Voorbeeld discretionaire bevoegdheid – gehoudenheid
+Artikel 6 Algemene wet inzake rijksbelastingen
+1. Met betrekking tot belastingen welke ingevolge de belastingwet bij wege van
+aanslag worden geheven, dan wel op aangifte worden voldaan of afgedragen,
+kan de inspecteur degene die naar zijn mening vermoedelijk belastingplichtig of
+inhoudingsplichtig is uitnodigen tot het doen van aangifte.
+Dit artikel beschrijft de discretionaire bevoegdheid van de inspecteur om een
+persoon uit te nodigen tot het doen van aangifte, te herkennen aan de woorden kan
+(…) naar zijn mening.
+Voorbeelden gebonden bevoegdheid – gehoudenheid
+Artikel 3:18 Algemene wet bestuursrecht
+1. Indien het een besluit op aanvraag betreft, neemt het bestuursorgaan het besluit
+zo spoedig mogelijk, doch uiterlijk zes maanden na ontvangst van de aanvraag.
+Hier is sprake van een gebonden bevoegdheid van een bestuursorgaan, te herkennen
+aan de woorden neemt (…) het besluit. Er is een voorwaarde verbonden aan de
+bevoegdheid, namelijk dat het bestuursorgaan zijn besluit moet nemen binnen zes
+maanden na ontvangst van de aanvraag.
+Artikel 3.19 Wet op de studiefinanciering
+1. Onze Minister kent studiefinanciering toe aan degene die daartoe een aanvraag
+heeft ingediend en die voldoet aan de voorschriften gegeven bij of krachtens deze
+wet.
+In dit artikel is sprake van een gebonden bevoegdheid om studiefinanciering toe te
+kennen. Deze bevoegdheid wordt uitgedrukt met de woorden kent (…) toe.
+97
+4 / HET JURIDISCHE ANALYSESCHEMA
+c. Immuniteit – geen bevoegdheid
+Een immuniteit – geen bevoegdheid beschrijft een toestand waarin het
+rechthebbende rechts subject een recht is toegekend dat de bevoegdheid van de
+wederpartij als het ware neutraliseert. Het plichthebbende rechts subject kan hier
+niets tegen inbrengen.
+Voorbeeld immuniteit
+Artikel 31 Verdrag van Wenen inzake diplomatiek verkeer
+1. De diplomatieke ambtenaar geniet immuniteit ten aanzien van de rechtsmacht
+in strafzaken van de ontvangende staat. Hij geniet eveneens immuniteit ten
+aanzien van de burger- en administratiefrechtelijke rechtsmacht van die staat, met
+uitzondering van de volgende gevallen:
+(…)
+Dit artikel kent expliciet een immuniteit toe. Dit voorrecht of privilege gaat voor op
+bevoegdheden die hier in algemene zin geduid worden als de rechtsmacht van de
+ontvangende staat. Deze bevoegdheden vervallen niet door de immuniteit, maar ze
+kunnen niet geëffectueerd worden jegens de persoon die de immuniteit geniet.
+Het is niet eenvoudig om een immuniteit te onderscheiden van een bevoegdheid
+onder een (uitsluitende) voorwaarde. Zo wordt in artikel 11 AWR geregeld dat
+de bevoegdheid van de inspecteur om een aanslag op te leggen, vervalt na het
+verstrijken van een termijn van drie jaar na het ontstaan van de belastingschuld.
+Hierbij is geen sprake van een immuniteit, maar van een tijdsafhankelijke
+voorwaarde op de bevoegdheid van de inspecteur om een aanslag op te leggen.
+Als de inspecteur na de genoemde termijn toch nog een aanslag oplegt, moet de
+belastingplichtige zich beroepen op overschrijding van de termijn. Hij is dus niet
+geheel gevrijwaard tegen optreden van de inspecteur.
+d. Vrijheid – geen aanspraak
+Het vierde type rechtsbetrekking is de vrijheid – geen aanspraak. Deze rechtsbetrekking
+beschrijft een vrije keuze van het rechthebbende rechts subject. Het
+bijzondere van deze rechtsbetrekking is dat er geen rechtsfeiten bij horen. Daarom is
+dit type rechtsbetrekking voor de uitvoeringspraktijk minder relevant.
+98
+WETSANALYSE
+Voorbeeld vrijheid – geen aanspraak
+Artikel 6 Grondwet
+Ieder heeft het recht zijn godsdienst of levensovertuiging individueel of in
+gemeenschap met anderen, vrij te belijden, behoudens ieders verantwoordelijkheid
+volgens de wet.
+Uit dit artikel vloeit voort dat een persoon vrij is om zijn geloof of overtuiging te
+belijden, zolang hij dit doet binnen de grenzen van de wet. Een ander kan geen
+aanspraak maken op beperking van die vrijheid, hij heeft deze te dulden.
+Relatie met andere klassen
+Bij een rechtsbetrekking zijn – zoals uit het voorgaande bleek – altijd twee rechtssubjecten
+betrokken, een rechthebbende en een plichthebbende. De rechtsbetrekking
+heeft ook een relatie met rechtsfeiten, omdat deze een rechtsbetrekking
+kunnen creëren, wijzigen of beëindigen.
+Een rechtsbetrekking omvat altijd een rechtsobject, het voorwerp van de
+rechtsbetrekking. Verder heeft de rechtsbetrekking vaak een bepaalde duur of
+geldigheidstermijn. Een voorbeeld is het recht op een werkloosheidsuitkering, dat
+beperkt is tot een voor de desbetreffende werknemer geldende uitkeringstermijn
+(artikel 20, eerste lid, onderdeel b, Werkloosheidswet).

@@ -1,0 +1,273 @@
+import AgentOntology
+import EventOntology
+import ModeOntology
+import IndividualOntology
+import ObjectOntology
+
+package LegalOntology
+
+/**
+Deze module implementeert UFO-L, een juridische kernontologie gebaseerd op Robert Alexy's Theory of Constitutional Rights,
+gegrond in de Unified Foundational Ontology (UFO). Het richt zich op juridische relaties, posities en patronen,
+inspiratie uit Hohfeld's correlatives en opposites, en onderscheidt tussen rechten, plichten, bevoegdheden, etc.
+
+Bibliography:
+- Griffo, C., Almeida, J.P.A., Guizzardi, G. (2015). Towards a Legal Core Ontology based on Alexy's Theory of Fundamental Rights.
+  https://www.researchgate.net/publication/283271774_Towards_a_Legal_Core_Ontology_based_on_Alexy's_Theory_of_Fundamental_Rights
+- Griffo, C., Almeida, J.P.A., Guizzardi, G. (2016). A Pattern for the Representation of Legal Relations in a Legal Core Ontology.
+  https://www.researchgate.net/publication/313108971_A_Pattern_for_the_Representation_of_Legal_Relations_in_a_Legal_Core_Ontologies
+- Griffo, C., Almeida, J.P.A., Guizzardi, G. (2020). Legal Theories and Judicial Decision-Making: An Ontological Analysis.
+  https://www.researchgate.net/publication/346433458_Legal_Theories_and_Judicial_Decision-Making_An_Ontological_Analysis
+- Griffo, C., Almeida, J.P.A., Lima, J.A.O., Sales, T.P., Guizzardi, G. (2023). Legal powers, subjections, disabilities, and immunities: Ontological analysis and modeling patterns.
+  https://www.researchgate.net/publication/373762643_Legal_powers_subjections_disabilities_and_immunities_Ontological_analysis_and_modeling_patterns
+
+Focus op relationele perspectief (niet normatief), met patronen voor modellering van juridische fenomenen zoals recht op leven, belastingbevoegdheden, en besluitvorming.
+*/
+
+// LegalRelator als specialisatie van SocialRelator (uit UFO-C)
+/**
+LegalRelator: Een SocialRelator gespecialiseerd voor juridische contexten, samengesteld uit juridische posities zoals claims en commitments.
+Dit verschilt van algemene sociale relators door binding aan juridische normen en enforcement.
+Voorbeelden: Relator voor "recht op leven" (Griffo et al., 2016), waarin rechtshouder claim heeft tegen plichthouder.
+*/
+subkind LegalRelator specializes SocialRelator {
+    label {
+        @en "Legal Relator"
+        @nl "Juridische Relator"
+    }
+    description {
+        @en "A SocialRelator specialized for legal contexts, mediating legal relations between agents via legal positions (claims/commitments)."
+        @nl "Een SocialRelator gespecialiseerd voor juridische contexten, medierend juridische relaties tussen agenten via juridische posities (claims/commitments)."
+    }
+}
+
+// LegalClaim als specialisatie van SocialClaim (aangemaakt als intrinsicMode voor inherence)
+subkind LegalClaim specializes SocialClaim {
+    label {
+        @en "Legal Claim"
+        @nl "Juridische Claim"
+    }
+    description {
+        @en "A SocialClaim in a legal context, representing entitlements like rights."
+        @nl "Een SocialClaim in juridische context, vertegenwoordigend aanspraken zoals rechten."
+    }
+}
+
+// LegalCommitment als specialisatie van SocialCommitment
+subkind LegalCommitment specializes SocialCommitment {
+    label {
+        @en "Legal Commitment"
+        @nl "Juridische Commitment"
+    }
+    description {
+        @en "A SocialCommitment in a legal context, representing obligations like duties."
+        @nl "Een SocialCommitment in juridische context, vertegenwoordigend verplichtingen zoals plichten."
+    }
+}
+
+// Right als juridische claim
+/**
+Right: Een juridische claim die een agent recht geeft op iets, correlatief tot duty.
+Gebaseerd op Alexy's "rights to something" (Griffo et al., 2015), onderscheiden in rechten op actie/omissie.
+Voorbeelden: Recht op leven (recht om beschermd te worden, niet gedood); recht op vrijheid van meningsuiting; recht op onderwijs.
+*/
+intrinsicMode Right {
+    label {
+        @en "Right"
+        @nl "Recht"
+    }
+    description {
+        @en "A legal claim entitling an agent to something, correlative to duty."
+        @nl "Een juridische claim die een agent recht geeft op iets, correlatief tot plicht."
+    }
+}
+
+// Duty als juridische commitment
+/**
+Duty: Een juridische commitment die een agent verplicht tot actie of omissie, correlatief tot right.
+Gebaseerd op Hohfeld's duty (Griffo et al., 2015), degene die iets moet doen voor rechtshouder.
+Voorbeelden: Plicht van overheid om onderwijs te bieden (tegen recht op onderwijs); plicht om niet te doden.
+*/
+intrinsicMode Duty {
+    label {
+        @en "Duty"
+        @nl "Plicht"
+    }
+    description {
+        @en "A legal commitment obliging an agent to act or omit, correlative to right."
+        @nl "Een juridische commitment die een agent verplicht tot handelen of nalaten, correlatief tot recht."
+    }
+}
+
+/** LegalPosition als algemene mode voor overige posities
+LegalPosition: Een mode vertegenwoordigend juridische posities inherend in agenten, buiten claims/commitments.
+Gebruikt voor powers, subjections, etc., die niet direct claims zijn (Griffo et al., 2023).
+Voorbeelden: Bevoegdheid om contracten te sluiten; immuniteit tegen belasting.
+*/
+
+mode LegalPosition {
+    label {
+        @en "Legal Position"
+        @nl "Juridische Positie"
+    }
+    description {
+        @en "A mode representing legal positions inhering in agents, including powers, etc."
+        @nl "Een mode vertegenwoordigend juridische posities inherend in agenten, inclusief bevoegdheden, etc."
+    }
+}
+
+/**
+Power: Een juridische positie die een agent in staat stelt juridische relaties te creëren/wijzigen/verdwijnen via institutionele acties.
+Gebaseerd op Alexy's power (Griffo et al., 2023), onderscheiden van gewone rechten/plichten.
+Voorbeelden: Macht van gemeente om belastingen te heffen (IPTU); macht van rechter om vonnis te vellen.
+*/
+mode Power {
+    label {
+        @en "Power"
+        @nl "Bevoegdheid"
+    }
+    description {
+        @en "A legal position enabling creation/modification/extinction of legal relations via institutional acts."
+        @nl "Een juridische positie die creatie/wijziging/verdwijnen van juridische relaties mogelijk maakt via institutionele acties."
+    }
+}
+
+/**
+Subjection: De correlatieve positie tot power, onderwerpend een agent aan de macht van een ander.
+Gebaseerd op subjection in power-subjection relators (Griffo et al., 2023).
+Voorbeelden: Onderwerping van burger aan belastingmacht van gemeente.
+*/
+mode Subjection {
+    label {
+        @en "Subjection"
+        @nl "Onderwerping"
+    }
+    description {
+        @en "The correlative position to power, subjecting an agent to another's power."
+        @nl "De correlatieve positie tot bevoegdheid, onderwerpend een agent aan de macht van een ander."
+    }
+}
+
+/**
+Disability: De afwezigheid van power, voorkomend institutionele acties tegen een ander.
+Gebaseerd op disability in disability-immunity relators (Griffo et al., 2023).
+Voorbeelden: Onvermogen van particuliere entiteit om belastingen te heffen (alleen overheid).
+*/
+mode Disability {
+    label {
+        @en "Disability"
+        @nl "Onbevoegdheid"
+    }
+    description {
+        @en "The absence of legal power, preventing institutional acts."
+        @nl "De afwezigheid van juridische bevoegdheid, voorkomend institutionele acties."
+    }
+}
+
+/**
+Immunity: De correlatieve positie tot disability, beschermend tegen de macht van een ander.
+Gebaseerd op immunity in disability-immunity relators (Griffo et al., 2023).
+Voorbeelden: Immuniteit van religieuze instellingen tegen belastingheffing.
+*/
+mode Immunity {
+    label {
+        @en "Immunity"
+        @nl "Immuniteit"
+    }
+    description {
+        @en "The correlative position to disability, protecting against another's power."
+        @nl "De correlatieve positie tot onbevoegdheid, beschermend tegen de macht van een ander."
+    }
+}
+
+/**
+InstitutionalAct: Een actie die juridische relaties creëert/wijzigt, zoals contracts ondertekening of wetgeving.
+Gebaseerd op institutionele acties in power-relators (Griffo et al., 2023).
+Voorbeelden: Ondertekening van contract (creëert rights/duties); stemming in parlement (creëert nieuwe wet).
+*/
+event InstitutionalAct {
+    label {
+        @en "Institutional Act"
+        @nl "Institutionele Actie"
+    }
+    description {
+        @en "An act creating/modifying legal relations, grounded in norms."
+        @nl "Een actie die juridische relaties creëert/wijzigt, gegrond in normen."
+    }
+}
+
+// Patronen: Recht-Plicht Relator (uit Griffo et al., 2016)
+/**
+RightDutyRelator: Patroon voor rechten-plichten relaties, samengesteld uit right en duty.
+Gebruikt voor "rights to something" (Griffo et al., 2015, 2016).
+Voorbeelden: Relator voor "iedereen heeft recht op leven" (right van persoon tegen duty van staat om te beschermen/niet te doden).
+*/
+relator RightDutyRelator {
+    label {
+        @en "Right-Duty Relator"
+        @nl "Recht-Plicht Relator"
+    }
+    description {
+        @en "A LegalRelator composed of right and duty positions."
+        @nl "Een JuridischeRelator samengesteld uit recht- en plichtposities."
+    }
+}
+
+// Patronen: Power-Subjection Relator (uit Griffo et al., 2023)
+/**
+PowerSubjectionRelator: Patroon voor bevoegdheden-onderwerping relaties.
+Gebruikt voor institutionele macht (Griffo et al., 2023).
+Voorbeelden: Relator voor belastingheffing (power van gemeente tegen subjection van burgers).
+*/
+relator PowerSubjectionRelator {
+    label {
+        @en "Power-Subjection Relator"
+        @nl "Bevoegdheid-Onderwerping Relator"
+    }
+    description {
+        @en "A LegalRelator composed of power and subjection positions."
+        @nl "Een JuridischeRelator samengesteld uit bevoegdheid- en onderwerpingposities."
+    }
+}
+
+// Patronen: Disability-Immunity Relator (uit Griffo et al., 2023)
+/**
+DisabilityImmunityRelator: Patroon voor onbevoegdheden-immuniteiten relaties.
+Gebruikt voor beperkingen op macht (Griffo et al., 2023).
+Voorbeelden: Relator voor belastingimmuniteit (disability van overheid tegen immunity van religieuze entiteiten).
+*/
+relator DisabilityImmunityRelator {
+    label {
+        @en "Disability-Immunity Relator"
+        @nl "Onbevoegdheid-Immuniteit Relator"
+    }
+    description {
+        @en "A LegalRelator composed of disability and immunity positions."
+        @nl "Een JuridischeRelator samengesteld uit onbevoegdheid- en immuniteitposities."
+    }
+}
+
+// Relaties tussen posities en agenten
+relation Right [1] -- inheresIn -- [1] Agent
+relation Duty [1] -- inheresIn -- [1] Agent
+relation Power [1] -- inheresIn -- [1] Agent
+relation Subjection [1] -- inheresIn -- [1] Agent
+relation Disability [1] -- inheresIn -- [1] Agent
+relation Immunity [1] -- inheresIn -- [1] Agent
+
+// Samenstelling van relators
+relation LegalRelator [1] -- composedOf -- [2..*] LegalClaim
+relation LegalRelator [1] -- composedOf -- [2..*] LegalCommitment
+relation RightDutyRelator [1] -- composedOf -- [1] Right
+relation RightDutyRelator [1] -- composedOf -- [1] Duty
+relation PowerSubjectionRelator [1] -- composedOf -- [1] Power
+relation PowerSubjectionRelator [1] -- composedOf -- [1] Subjection
+relation DisabilityImmunityRelator [1] -- composedOf -- [1] Disability
+relation DisabilityImmunityRelator [1] -- composedOf -- [1] Immunity
+
+// Manifestatie via institutionele acties
+relation InstitutionalAct [1] -- manifests -- [1..*] LegalRelator
+
+// Add relation showing normative foundation
+@formal relation NormativeDescription [0..1] -- defines -- [1..*] LegalRelator
+@formal relation NormativeDescription [0..1] -- defines -- [1..*] LegalPosition

@@ -5,7 +5,7 @@ import AgentOntology
 
 package ValuePropositionOntology
 
-relator ValueProposition {
+subkind ValueProposition specializes ValueAssertion {
     label {
         @en "Value Proposition"
         @nl "Waardepropositie"

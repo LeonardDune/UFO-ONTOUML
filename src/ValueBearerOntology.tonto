@@ -25,7 +25,7 @@ roleMixin ValueBearer {
     */
 }
 
-roleMixin Valuation specializes Action {
+event Valuation specializes Action {
     label {
         @en "Valuation"
         @nl "Waardering"
