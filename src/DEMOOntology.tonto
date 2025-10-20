@@ -3,6 +3,7 @@ import EventOntology
 import ModeOntology
 import IndividualOntology
 import ObjectOntology
+import LegalOntology
 
 package DEMOOntology
 
@@ -168,6 +169,26 @@ subkind Transaction specializes SocialRelator {
     description {
         @en "A social relator representing a business transaction between initiator and executor."
         @nl "Een sociale relator die een zakelijke transactie tussen initiator en executor vertegenwoordigt."
+    }
+}
+
+/**
+ * TransactorRole: Universele bouwsteen van organisaties (TAR01, TAR02, etc.).
+ *
+ * DEMO-SL: TAR = Transaction + ActorRole (executor). Hoogste abstractieniveau voor
+ * Construction Model. Organisaties bestaan uit TAR's met coördinatiestructuren ertussen.
+ *
+ * UFO Foundation: Kind als endurant entiteit die transaction en executor role combineert.
+ * Dit is de primaire bouwsteen voor organisatiemodellering.
+ */
+kind TransactorRole {
+    label {
+        @en "Transactor Role"
+        @nl "Transactorrol"
+    }
+    description {
+        @en "Universal building block combining transaction and executor role."
+        @nl "Universele bouwsteen die transactie en uitvoerende actorrol combineert."
     }
 }
 
@@ -528,26 +549,26 @@ event ProductionAct specializes AtomicAction {
 //
 
 /**
- * Actor Participation Relation: Actoren nemen deel aan transacties.
+ * Actor Participation Relation: ActorRoles nemen deel aan transacties.
  *
- * DEMO-SL Pattern: @participation links actors to transactions they participate in.
- * This fundamental relation establishes which actors are involved in which transactions.
+ * DEMO-SL Pattern: @participation links ActorRoles to transactions they participate in.
+ * This fundamental relation establishes which actor roles are involved in which transactions.
  *
  * UFO Foundation: @participation is a specific relation type indicating involvement
- * in perdurants (events/processes). Here it connects endurant actors to perdurant transactions.
+ * in perdurants (events/processes). Here it connects endurant actor roles to perdurant transactions.
  *
- * Cardinality: Actor can participate in multiple transactions, transaction involves multiple actors.
- * Each transaction requires exactly one initiator and one executor.
+ * Cardinality: ActorRole can participate in multiple transactions, transaction involves multiple actor roles.
+ * Each transaction requires ActorRoles for initiator and executor positions.
  *
- * Purpose: Enables tracking actor involvement and responsibilities across transactions.
+ * Purpose: Enables tracking actor role involvement and responsibilities across transactions.
  * Critical for organizational analysis and accountability.
  *
  * Examples:
- * - Customer participates in rental transaction (as initiator)
- * - Rental company participates in rental transaction (as executor)
- * - Multiple actors participate in complex collaborative transactions
+ * - "Customer" actor role participates in rental transaction (as initiator)
+ * - "Rental Agent" actor role participates in rental transaction (as executor)
+ * - Multiple actor roles participate in complex collaborative transactions
  */
-@participation relation Actor -- participatesIn -- Transaction
+@participation relation ActorRole -- participatesIn -- Transaction
 
 /**
  * Transaction Structure Relations: De kernstructuur van transacties.
@@ -728,25 +749,64 @@ event ProductionAct specializes AtomicAction {
 @creation relation CoordinationAct -- creates -- [0..1] CCommitment
 
 /**
- * Access Relation: Formele toegang van actor tot transaction bank (Interstriction Structure).
+ * TransactorRole Samenstelling: TAR = Transaction + ActorRole (executor).
  *
- * DEMO-SL: Access links in CSD geven aan dat actoren toegang hebben tot facts
- * in transaction banks voor besluitvorming. Dit gaat verder dan initiator/executor toegang.
- *
- * UFO Foundation: @formal relation tussen actor en transaction voor informatie toegang.
+ * DEMO-SL: Elke TAR combineert precies één transactie met de actorrol
+ * die de executor verantwoordelijkheid heeft voor die transactie.
  */
-@formal relation Actor -- hasAccessTo -- Transaction
+@componentOf relation TransactorRole -- composedOf -- [1] Transaction
+@componentOf relation TransactorRole -- composedOf -- [1] ActorRole
+@mediation relation Transaction -- hasExecutor -- [1] ActorRole
 
 /**
- * Wait Relation: Transaction triggert wachttijd voor actor (Interimpediment Structure).
+ * TransactorRole Production Uitvoering: De ActorRole component van een TransactorRole
+ * is verantwoordelijk voor het uitvoeren van ProductionActs van die TransactorRole.
  *
- * DEMO-SL: Wait links in CSD geven aan dat actoren moeten wachten tot transaction
+ * DEMO-SL: ProductionActs worden uitsluitend uitgevoerd door de executor ActorRole
+ * van de TransactorRole waartoe ze behoren (via TransactionEvent compositie).
+ * Dit garandeert dat alleen executor ActorRoles ProductionFacts kunnen produceren.
+ */
+@participation relation TransactorRole -- performsProduction -- [0..*] ProductionAct
+
+/**
+ * TAR-level Coördinatiestructuren volgens DEMO-SL CSD.
+ */
+
+/**
+ * Interaction Structure tussen TAR's: Initiator links.
+ */
+@mediation relation TransactorRole -- initiates -- [0..*] TransactorRole
+
+/**
+ * Interstriction Structure tussen TAR's: Access links.
+ */
+@formal relation TransactorRole -- hasAccessTo -- [0..*] TransactorRole
+
+/**
+ * Interimpediment Structure tussen TAR's: Wait links.
+ */
+@triggers relation TransactorRole -- impedes -- [0..*] TransactorRole
+
+/**
+ * Access Relation: Formele toegang van ActorRole tot transaction bank (Interstriction Structure).
+ *
+ * DEMO-SL: Access links geven ActorRoles toegang tot facts in transaction banks
+ * voor besluitvorming. Dit gaat verder dan initiator/executor toegang.
+ *
+ * UFO Foundation: @formal relation tussen ActorRole en Transaction voor informatie toegang.
+ */
+@formal relation ActorRole -- hasAccessTo -- Transaction
+
+/**
+ * Wait Relation: Transaction triggert wachttijd voor ActorRole (Interimpediment Structure).
+ *
+ * DEMO-SL: Wait links geven aan dat ActorRoles moeten wachten tot transaction
  * bepaalde voortgang heeft bereikt voordat ze verder kunnen.
  *
- * UFO Foundation: @triggers relation waarbij transaction state een actor triggert
+ * UFO Foundation: @triggers relation waarbij Transaction een ActorRole triggert
  * om te wachten.
  */
-@triggers relation Transaction -- impedes -- Actor
+@triggers relation Transaction -- impedes -- ActorRole
 
 // FACT RELATIONS
 /**
@@ -755,8 +815,8 @@ event ProductionAct specializes AtomicAction {
  * DEMO-SL: Coordination acts create coordination facts, production acts create production facts.
  * Deze facts vertegenwoordigen de resultaten van de handelingen.
  */
-relation CoordinationAct -- creates -- [1] CoordinationFact
-relation ProductionAct -- creates -- [1] ProductionFact
+@bringsAbout relation CoordinationAct -- creates -- [1] CoordinationFact
+@bringsAbout relation ProductionAct -- creates -- [1] ProductionFact
 
 /**
  * Facts inhereren in substantals uit de productie-wereld, met specifieke typing.
@@ -770,8 +830,8 @@ relation ProductionAct -- creates -- [1] ProductionFact
  * Production facts inhere in WorkProducts, providing semantic precision for what
  * can be affected by production acts.
  */
-relation CoordinationFact -- inheresIn -- [1] SocialObject
-relation ProductionFact -- inheresIn -- [1] WorkProduct
+@characterization relation CoordinationFact -- inheresIn -- [1] SocialObject
+@characterization relation ProductionFact -- inheresIn -- [1] WorkProduct
 
 /**
  * Transaction banks bevatten facts voor state management.
@@ -785,3 +845,10 @@ relation ProductionFact -- inheresIn -- [1] WorkProduct
  */
 relation Transaction -- contains -- [0..*] CoordinationFact
 relation Transaction -- contains -- [0..*] ProductionFact
+
+//Een transactie wordt juridisch beperkt door een rechtsbetrekking; b.v. bepaalt wie de transactie mag initiëren, mag uitvoeren, of aan welke wettelijke regels (voorwaarden) de transactie moet voldoen
+@historicalDependence relation LegalRelator [0..*] -- constrains -- [0..*] Transaction
+//Een rechtsbetrekking manifesteert zich in een transactiegebeurtenis; m.a.w. het legitimeert het optreden van de gebeurtenis
+@manifestation relation LegalRelator [1] -- manifests -- [0..*] TransactionEvent
+//De transactiegebeurtenis is historisch afhankelijk van één of meer gebeurtenissen die de rechtsbetrekkingen die relevant zijn voor de transactie tot stand hebben gebracht
+@historicalDependence relation TransactionEvent [0..*] -- dependedOn -- [1..*] InstitutionalAct

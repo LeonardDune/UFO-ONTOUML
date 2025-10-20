@@ -78,7 +78,7 @@ roleMixin Committor specializes LegalSubject {
     */
 }
 
-roleMixin LegalObject specializes ValueBearer {
+roleMixin LegalObject specializes ValueBearer, WorkProduct {
     label {
         @en "Legal Object"
         @nl "Rechtsobject"
@@ -463,3 +463,4 @@ relation InstitutionalAct [1] -- manifests -- [1..*] LegalRelator
 // Add relation showing normative foundation
 @formal relation NormativeDescription [0..1] -- defines -- [1..*] LegalRelator
 @formal relation NormativeDescription [0..1] -- defines -- [1..*] LegalPosition
+
