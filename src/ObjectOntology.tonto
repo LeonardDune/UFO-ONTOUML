@@ -33,7 +33,7 @@ kind PhysicalObject specializes Object {
     */
 }
 
-kind Resource specializes Object {
+mixin Resource specializes Object {
     label {
         @en "Resource"
         @nl "Hulpbron"

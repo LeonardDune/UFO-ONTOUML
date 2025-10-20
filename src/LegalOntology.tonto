@@ -4,6 +4,7 @@ import ModeOntology
 import IndividualOntology
 import ObjectOntology
 import ValueBearerOntology
+import DEMOOntology
 
 package LegalOntology
 
@@ -204,10 +205,10 @@ LegalRelator: Een SocialRelator gespecialiseerd voor juridische contexten, samen
 Dit verschilt van algemene sociale relators door binding aan juridische normen en enforcement.
 Voorbeelden: Relator voor "recht op leven" (Griffo et al., 2016), waarin rechtshouder claim heeft tegen plichthouder.
 */
-subkind LegalRelator specializes SocialRelator {
+role LegalRelator specializes SocialRelator, Transaction {
     label {
         @en "Legal Relator"
-        @nl "Juridische Relator"
+        @nl "Rechtsbetrekking"
     }
     description {
         @en "A SocialRelator specialized for legal contexts, mediating legal relations between agents via legal positions (claims/commitments)."
@@ -216,7 +217,7 @@ subkind LegalRelator specializes SocialRelator {
 }
 
 // LegalClaim als specialisatie van SocialClaim (aangemaakt als intrinsicMode voor inherence)
-subkind LegalClaim specializes SocialClaim {
+role LegalClaim specializes SocialClaim, CClaim {
     label {
         @en "Legal Claim"
         @nl "Juridische Claim"
@@ -228,7 +229,7 @@ subkind LegalClaim specializes SocialClaim {
 }
 
 // LegalCommitment als specialisatie van SocialCommitment
-subkind LegalCommitment specializes SocialCommitment {
+role LegalCommitment specializes SocialCommitment, CCommitment {
     label {
         @en "Legal Commitment"
         @nl "Juridische Commitment"
@@ -355,11 +356,11 @@ mode Immunity {
 }
 
 /**
-InstitutionalAct: Een actie die juridische relaties creëert/wijzigt, zoals contracts ondertekening of wetgeving.
+InstitutionalAct: Een actie die juridische relaties creëert/wijzigt, zoals ondertekening van een contract of wetgeving.
 Gebaseerd op institutionele acties in power-relators (Griffo et al., 2023).
 Voorbeelden: Ondertekening van contract (creëert rights/duties); stemming in parlement (creëert nieuwe wet).
 */
-event InstitutionalAct specializes CommunicativeAct {
+event InstitutionalAct specializes CommunicativeAct, TransactionEvent {
     label {
         @en "Institutional Act"
         @nl "Institutionele Actie"
